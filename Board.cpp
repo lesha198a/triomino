@@ -46,7 +46,7 @@ bool Board::setPoint(size_t x, size_t y) {
 }
 
 Board Board::createBoard() {
-    std::cout << "\nInput size_teger for board sizes (2^n)" << std::endl;
+    std::cout << "\nInput unsigned integer for board sizes (2^n)" << std::endl;
 
     size_t n = 0, x = 0, y = 0;
     std::cin >> n;
@@ -55,7 +55,7 @@ Board Board::createBoard() {
     bool pointInputStatus = false;
 
     while (!pointInputStatus) {
-        std::cout << "\nInput X and Y for point M(X, Y) checked on board (size_tegers)\nX = ";
+        std::cout << "\nInput X and Y for point M(X, Y) checked on board (unsigned integers)\nX = ";
         std::cin >> x;
         std::cout << "\nY = ";
         std::cin >> y;
@@ -87,7 +87,6 @@ void Board::place(pos leftBottom, pos rightTop) {
     if (leftBottom.X >= rightTop.X || leftBottom.Y >= rightTop.Y) {
         return;
     }
-    bool isLastIteration = (rightTop.X - leftBottom.X) == 1;
 
     // - 4 | - 6
     // 3 - | 5 -
@@ -97,7 +96,7 @@ void Board::place(pos leftBottom, pos rightTop) {
 
     leftBottom;//1
 
-    pos leftBottomCenter(leftBottom.X + (rightTop.X - leftBottom.X) / 2, leftBottom.Y + (rightTop.Y - leftBottom.Y) / 2);//2
+    pos leftBottomCenter(leftBottom.X + (rightTop.X - leftBottom.X) / 2, leftBottom.Y + (rightTop.Y - leftBottom.Y) / 2); //2
 
     pos thirdPos(leftBottom.X, leftBottomCenter.Y + 1);//3
 
